@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/auth :: head"></head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <div class="alert alert-danger" th:if="${error != null}"
+                 th:text="${error}"></div>
+            <!-- Icon -->
+            <div class="fadeIn first my-4" >
+                <i class="fas fa-user-lock fa-4x"></i>
+            </div>
+
+            <!-- Login Form -->
+            <form th:action="@{/login}" method="post" action="/login">
+                <input type="text" id="login" class="fadeIn second" name="username"  placeholder="nombre de usuario">
+                <input type="text" id="password" class="fadeIn third" name="password"  placeholder="contraseña">
+                <input type="submit" class="fadeIn fourth" value="Ingresar">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" th:href="@{/registration}">¿No tienes un usuario?</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
